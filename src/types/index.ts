@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-
-interface Movie {
+import { Document } from "mongoose";
+interface Movie extends Document {
   Title: string;
   Year: string;
   Rated: string;
@@ -32,7 +32,7 @@ interface Movie {
   Response: string;
 }
 
-// I've let the MovieData type in place to make it easy to check wether the data is coming from cache or not. Obviously, I'won't do that if it wasn't a test
+// I've let the MovieData type in place to make it easy to check wether the data is coming from cache or not.
 type MovieData = {
   movie: Movie;
   message: string;
